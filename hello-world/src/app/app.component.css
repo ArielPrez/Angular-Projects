@@ -1,0 +1,11 @@
+.main{
+  display: inline-block;
+}
+.courses{
+  display: inline-block;
+  margin: 0 5%;
+}
+.authors{
+  display: inline-block;
+  margin: 0 5%;
+}

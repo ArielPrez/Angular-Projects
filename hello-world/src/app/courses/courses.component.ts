@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class CoursesComponent {
   title = 'List of Courses';
+  imageUrl = 'http://lorempixel.com/400/200';
   courses;
   constructor(service: CoursesService) {
     // let service = new CoursesService();
