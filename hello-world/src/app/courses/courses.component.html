@@ -1,17 +1,22 @@
-<div>
+<div id="coursesId">
   <h2>
     {{title}}
   </h2>
-  <ul>
-    <li *ngFor="let i of courses" >
-      {{ i }}
-    </li>
+  <ul *ngFor="let i of courses" >
+    <li> {{ i.title | uppercase}} </li>
+    <li> {{i.students | number }} </li>
+    <!-- SEE HOW IT ROUND THE SECOND DECIMAL NUMBER AFTER THE POINT -->
+    <li> {{i.rating | number:'1.1-2' }} </li>
+    <!-- APPLY THE CURRENCY SYMBOL (USD,EUR,AUD,JPY etc...)-->
+    <li> {{i.price | currency:'EUR' }} </li>
+    <li> {{i.releaseDate | date:'mediumDate'}} </li>
+    <li> {{i.description | summary: '70'}} </li>
   </ul>
   <img src="{{ imageUrl }}" alt="Random Image">
 
   <button 
     class="btn btn-primary [class.active]='isActive' " 
-    [style.backgroundColor] = "isActive ? 'white' : 'blue'"
+    [style.backgroundColor] = "isActive ? 'blue' : 'gray'"
     (click) = deactivateBtn($event)
   >Save</button>
 
@@ -23,7 +28,7 @@
   <label for="">
     {{eMail}}
   </label>
-  
+
   <!-- <table>
     <tr>
       <td [attr.colspan]="colSpan" >colspan</td>

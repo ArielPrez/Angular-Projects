@@ -1,11 +1,21 @@
 .main{
-  display: inline-block;
+  position: relative;
+  float: left;
+  text-align: center;
+  /* border: 1px solid black; */
+  width: 20%;
+  height: auto;
+}
+img{
+  width: 60%;
+  display: inline-flex;
+  
 }
 .courses{
-  display: inline-block;
+  display: inline-flex;
   margin: 0 5%;
 }
 .authors{
-  display: inline-block;
+  display: inline-flex;
   margin: 0 5%;
 }
