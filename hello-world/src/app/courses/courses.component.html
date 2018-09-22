@@ -8,4 +8,25 @@
     </li>
   </ul>
   <img src="{{ imageUrl }}" alt="Random Image">
+
+  <button 
+    class="btn btn-primary [class.active]='isActive' " 
+    [style.backgroundColor] = "isActive ? 'white' : 'blue'"
+    (click) = deactivateBtn($event)
+  >Save</button>
+
+  <label for="name">Name: </label>
+  <input name="name" #name (keyup.enter) = "enterWasPres(name.value)" type="text">
+  <label for="myMail">Email:
+  </label>
+  <input name="myMail" [(ngModel)]="eMail" (keyup.enter)="onKeyUp()">
+  <label for="">
+    {{eMail}}
+  </label>
+  
+  <!-- <table>
+    <tr>
+      <td [attr.colspan]="colSpan" >colspan</td>
+    </tr>
+  </table> -->
 </div>
