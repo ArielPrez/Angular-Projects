@@ -7,15 +7,23 @@
   height: auto;
 }
 img{
-  width: 60%;
+  width: 50%;
   display: inline-flex;
   
 }
+.fav{
+  display: inline-flex;
+  margin: 0 0 0 1%;
+  width: 5%;
+  border: 1px solid black;
+}
 .courses{
   display: inline-flex;
-  margin: 0 5%;
+  margin: 0 3%;
+  width: 30%;
 }
 .authors{
   display: inline-flex;
-  margin: 0 5%;
+  margin: 0 3%;
+  width: 30%;
 }

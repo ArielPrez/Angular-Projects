@@ -2,7 +2,9 @@
   <h2>
     {{title}}
   </h2>
+  
   <ul *ngFor="let i of courses" >
+      <app-favorite></app-favorite>
     <li> {{ i.title | uppercase}} </li>
     <li> {{i.students | number }} </li>
     <!-- SEE HOW IT ROUND THE SECOND DECIMAL NUMBER AFTER THE POINT -->
@@ -10,7 +12,7 @@
     <!-- APPLY THE CURRENCY SYMBOL (USD,EUR,AUD,JPY etc...)-->
     <li> {{i.price | currency:'EUR' }} </li>
     <li> {{i.releaseDate | date:'mediumDate'}} </li>
-    <li> {{i.description | summary: '50'}} </li>
+    <li> {{i.description | summary }} </li> <!-- THE CUSTOM PIPE 'summary : 5' DEFINE THE MAXIMUM AMOUNT OF CHARACTERS TO SHOW -->
   </ul>
   <img src="{{ imageUrl }}" alt="Random Image">
 
