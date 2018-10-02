@@ -11,7 +11,18 @@ button{
   padding: 5px 10px;
   border-radius: 5px; 
 }
-label,input{
+.info{
+  /* border: 1px solid black; */
+  width: 100%;
+} 
+label{
   display: flex;
   margin: 5% 0;
+}
+input{
+  display: flex;
+}
+.title{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }

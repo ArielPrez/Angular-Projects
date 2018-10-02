@@ -1,1 +1,6 @@
-<span class="glyphicons glyphicons-star"></span>
+<span
+  class="glyphicons"
+  [class.glyphicon-star]="isFav"
+  [class.glyphicon-star-empty]="!isFav"
+  (click)="onClick()"
+></span>

@@ -4,7 +4,6 @@
   </h2>
   
   <ul *ngFor="let i of courses" >
-      <app-favorite></app-favorite>
     <li> {{ i.title | uppercase}} </li>
     <li> {{i.students | number }} </li>
     <!-- SEE HOW IT ROUND THE SECOND DECIMAL NUMBER AFTER THE POINT -->
@@ -14,26 +13,42 @@
     <li> {{i.releaseDate | date:'mediumDate'}} </li>
     <li> {{i.description | summary }} </li> <!-- THE CUSTOM PIPE 'summary : 5' DEFINE THE MAXIMUM AMOUNT OF CHARACTERS TO SHOW -->
   </ul>
-  <img src="{{ imageUrl }}" alt="Random Image">
+  
 
   <button 
     class="btn btn-primary [class.active]='isActive' " 
     [style.backgroundColor] = "isActive ? 'blue' : 'gray'"
     (click) = deactivateBtn($event)
   >Save</button>
-
-  <label for="name">Name: </label>
-  <input name="name" #name (keyup.enter) = "enterWasPres(name.value)" type="text">
-  <label for="myMail">Email:
-  </label>
-  <input name="myMail" [(ngModel)]="eMail" (keyup.enter)="onKeyUp()">
-  <label for="">
-    {{eMail}}
-  </label>
-
-  <!-- <table>
-    <tr>
-      <td [attr.colspan]="colSpan" >colspan</td>
-    </tr>
-  </table> -->
-</div>
+  <div class="container info">
+      <div class="row">
+        <div class="col">
+            <label for="name">Name: </label>
+            <label for="myMail">Email: </label>
+            
+        </div>
+        <div class="col">
+            <input name="name" #name (keyup.enter) = "enterWasPres(name.value)" type="text">
+            <input name="myMail" [(ngModel)]="eMail" (keyup.enter)="onKeyUp()">
+            <label for="myMail">
+                {{eMail}}
+            </label>
+        </div>
+        
+  </div>
+  </div>
+  <div class="container title">
+      <div class="row">
+        <div class="col">
+          <label for="">The Title:</label>
+          <br>
+        </div>
+        <div class="col">
+          <label for="">{{titleC | titleCase}}</label>
+          <input type="title" [(ngModel)]="titleC">
+          <br>
+        </div>
+      </div>
+  </div>
+<br>
+  <img src="{{ imageUrl }}" alt="Random Image">
