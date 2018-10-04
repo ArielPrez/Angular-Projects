@@ -10,7 +10,7 @@ import { AuthorsComponent } from './authors/authors.component';
 import { SummaryPipe } from './pipes/summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCasePipe } from './pipes/title-case.pipe';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { TitleCasePipe } from './pipes/title-case.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [
     CoursesService,
