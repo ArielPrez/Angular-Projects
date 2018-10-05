@@ -4,7 +4,7 @@
   </h2>
   
   <ul *ngFor="let i of courses" >
-    <li> {{ i.title | uppercase}} </li>
+    <li> {{ i.title | uppercase}} | <app-favorite></app-favorite> </li>
     <li> {{i.students | number }} </li>
     <!-- SEE HOW IT ROUND THE SECOND DECIMAL NUMBER AFTER THE POINT -->
     <li> {{i.rating | number:'1.1-2' }} </li>

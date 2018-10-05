@@ -10,9 +10,8 @@
     <fa-icon [icon]="star"></fa-icon>
   </div> -->
   
-<div>
-  <app-favorite></app-favorite>
-</div>
+<app-favorite [isFav]="post.isFavorite"></app-favorite>
+
 <div class="courses">
   <app-courses></app-courses>
 </div> 
