@@ -9,10 +9,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular';
   // star = faStar;
-  post={
-    title: 'Title',
-    isFavorite: true
-  }
 
   getTitle(){
     return this.title;

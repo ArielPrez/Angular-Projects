@@ -13,6 +13,11 @@ export class CoursesComponent {
   courses;
   isActive = true;
   eMail = "me@example.com";
+  post={
+    title: 'Star',
+    isFavorite: false
+  }
+  
   constructor(service: CoursesService) {
     // let service = new CoursesService();
     this.courses = service.getCourses();

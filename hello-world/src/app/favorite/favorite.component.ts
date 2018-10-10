@@ -6,14 +6,23 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./favorite.component.css']
 })
 export class FavoriteComponent implements OnInit {
-  @Input() isFav: boolean;
-
+  @Input('is_Fav') isUp: boolean;
+  @Input('is_Fav') isDown: boolean;
+  
   constructor() { }
 
   ngOnInit() {
   }
   
-  onClick(){
-    this.isFav = !this.isFav;
+  onClick(thumb){
+    if(thumb === 'up'){
+      this.isUp = !this.isUp;
+      if(this.isDown)
+        this.isDown = !this.isDown;
+    }else if(thumb === 'down'){
+      this.isDown = !this.isDown;
+      if(this.isUp)
+        this.isUp = !this.isUp;
+    }
   }
 }

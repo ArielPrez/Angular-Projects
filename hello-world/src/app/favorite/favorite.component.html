@@ -1,6 +1,23 @@
-<span 
+<!-- <span 
   class="far fa-star"
   [class.fas]="isFav"
   [class.far]="!isFav"
   (click)="onClick()"
+></span> -->
+<span
+  class="fas fa-thumbs-up"
+  [class.fas]="isUp"
+  [class.far]="!isUp"
+  (click)="onClick('up')"
+></span>
+<span> | </span>
+<span 
+  style='-moz-transform: scale(-1,1);
+        -o-transform: scale(-1,1);
+        -webkit-transform: scale(-1,1);
+        transform:scale(-1,1)'
+  class="fas fa-thumbs-down"
+  [class.fas]="isDown"
+  [class.far]="!isDown"
+  (click)="onClick('down')"
 ></span>
