@@ -4,7 +4,8 @@
   </h2>
   
   <ul *ngFor="let i of courses" >
-    <li> {{ i.title | uppercase}} | <app-favorite [is_Fav]="post.isFavorite"></app-favorite>
+    <li> {{ i.title | uppercase}} </li>
+    <li> <app-favorite [is_Fav]="post.isFavorite" (change)="onFavChanged($event)"></app-favorite>
     </li>
     <li> {{i.students | number }} </li>
     <!-- SEE HOW IT ROUND THE SECOND DECIMAL NUMBER AFTER THE POINT -->
@@ -53,3 +54,4 @@
   </div>
 <br>
   <img src="{{ imageUrl }}" alt="Random Image">
+

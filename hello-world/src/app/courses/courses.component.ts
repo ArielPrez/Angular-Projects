@@ -1,5 +1,7 @@
 import { CoursesService } from './../services/courses.service';
 import { Component } from '@angular/core';
+import { FavoriteChangedEventArgs } from '../favorite/favorite.component';
+
 
 @Component({
   selector: 'app-courses',
@@ -38,4 +40,7 @@ export class CoursesComponent {
     this.l(this.eMail);
   }
   
+  onFavChanged(eventArgs: FavoriteChangedEventArgs){
+    this.l("Fav changed! ", eventArgs.newValue);
+  }
 }

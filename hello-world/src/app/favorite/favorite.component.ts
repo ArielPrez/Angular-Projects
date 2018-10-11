@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+// import { EventEmitter } from 'protractor';
+
 
 @Component({
   selector: 'app-favorite',
@@ -8,7 +10,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FavoriteComponent implements OnInit {
   @Input('is_Fav') isUp: boolean;
   @Input('is_Fav') isDown: boolean;
-  
+  @Output('change') thumbEvnt = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -24,5 +27,11 @@ export class FavoriteComponent implements OnInit {
       if(this.isUp)
         this.isUp = !this.isUp;
     }
+
+    this.thumbEvnt.emit({ newValue: this.isUp});
   }
+}
+
+export interface FavoriteChangedEventArgs{
+  newValue: boolean
 }
