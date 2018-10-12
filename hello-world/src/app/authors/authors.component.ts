@@ -8,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorsComponent implements OnInit {
   authors;
+  isFav: boolean;
+  tweet = {
+    body: '',
+    isLiked: false,
+    likesCount: 4
+  }  
+
   constructor(service: AuthorsService) {
     this.authors = service.getAuthors();
+    console.log(this.authors);
   }
 
   ngOnInit() {

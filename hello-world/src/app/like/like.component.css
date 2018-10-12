@@ -1,0 +1,12 @@
+span{
+  display: inline-block;
+  float: right;
+  margin-right:1rem;
+}
+.far{
+  color: rgb(144, 144, 144);
+  cursor: pointer;
+}
+.fas{
+  color: rgb(208, 97, 97);
+}

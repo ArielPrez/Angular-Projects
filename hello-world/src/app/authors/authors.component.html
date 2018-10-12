@@ -8,15 +8,6 @@
 </ul> -->
 
 <br>
-<!-- <div class="panel panel-default">
-  <div class="panel-heading">
-    <ng-content select=".heading"></ng-content>
-  </div>
-  <div class="panel-body">
-    <ng-content select=".body"></ng-content>
-  </div>
-</div> -->
-
 <div class="card">
   <h5 class="card-header">
       <ng-content select=".heading"></ng-content>
@@ -27,12 +18,19 @@
     <h5 class="card-title">
         <ul>
             <li *ngFor="let i of authors" >
-              {{i}}
+              <i>{{i.firstName}}
+                  <app-like
+                  [isActive]="tweet.isLiked"
+                  [likesCount]="tweet.likesCount"
+                >
+                </app-like>
+                {{i.likes}}
+              </i>
+              
+              <!-- [likesCount]="tweet.likesCount" -->
             </li>
           </ul>
       <ng-content select=".body"></ng-content>
     </h5>
-    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a> -->
   </div>
 </div>

@@ -1,9 +1,7 @@
-.fas{
+.fas, .far{
   /* background-color: gold; */
   /* color: rgb(6, 95, 212); */
   color: rgb(144, 144, 144);
+  cursor: pointer;
 }
-.far{
-  fill: rgb(144, 144, 144);
-  color: rgb(144, 144, 144);
-}
+

@@ -1,0 +1,8 @@
+<span
+  class="far fa-heart"
+  [class.fas]="isActive"
+  [class.far]="!isActive"
+  (click)="onClick()"
+>
+{{ likesCount }}
+</span>

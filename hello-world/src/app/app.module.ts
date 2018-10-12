@@ -11,6 +11,7 @@ import { SummaryPipe } from './pipes/summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCasePipe } from './pipes/title-case.pipe';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LikeComponent } from './like/like.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AuthorsComponent,
     SummaryPipe,
     FavoriteComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    LikeComponent
   ],
   imports: [
     BrowserModule,
