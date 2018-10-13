@@ -4,16 +4,16 @@
   </h2>
   
   <ul *ngFor="let i of courses" >
-    <li> {{ i.title | uppercase}} </li>
+    <li> <b>{{ i.title | uppercase}}</b> </li>
     <li> <app-favorite [is_Fav]="post.isFavorite" (change)="onFavChanged($event)"></app-favorite>
     </li>
-    <li> {{i.students | number }} </li>
+    <li> <b>Students</b> - {{i.students | number }} </li>
     <!-- SEE HOW IT ROUND THE SECOND DECIMAL NUMBER AFTER THE POINT -->
-    <li> {{i.rating | number:'1.1-2' }} </li>
+    <li> <b>Rating</b> - {{i.rating | number:'1.1-2' }} </li>
     <!-- APPLY THE CURRENCY SYMBOL (USD,EUR,AUD,JPY etc...)-->
-    <li> {{i.price | currency:'EUR' }} </li>
-    <li> {{i.releaseDate | date:'mediumDate'}} </li>
-    <li> {{i.description | summary }} </li> <!-- THE CUSTOM PIPE 'summary : 5' DEFINE THE MAXIMUM AMOUNT OF CHARACTERS TO SHOW -->
+    <li> <b>Price</b> - {{i.price | currency:'EUR' }} </li>
+    <li> <b>Release Date</b> - {{i.releaseDate | date:'mediumDate'}} </li>
+    <li> <b>Description:</b> <br>{{i.description | summary }} </li> <!-- THE CUSTOM PIPE 'summary : 5' DEFINE THE MAXIMUM AMOUNT OF CHARACTERS TO SHOW -->
   </ul>
   
 
@@ -55,3 +55,4 @@
 <br>
   <img src="{{ imageUrl }}" alt="Random Image">
 
+</div>

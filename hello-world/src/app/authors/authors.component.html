@@ -1,12 +1,3 @@
-<!-- <h2>
-  - {{ authors.length }} Authors -
-</h2>
-<ul>
-  <li *ngFor="let i of authors" >
-    {{i}}
-  </li>
-</ul> -->
-
 <br>
 <div class="card">
   <h5 class="card-header">
@@ -19,15 +10,12 @@
         <ul>
             <li *ngFor="let i of authors" >
               <i>{{i.firstName}}
-                  <app-like
-                  [isActive]="tweet.isLiked"
-                  [likesCount]="tweet.likesCount"
-                >
-                </app-like>
-                {{i.likes}}
               </i>
-              
-              <!-- [likesCount]="tweet.likesCount" -->
+              <app-like
+                  [isActive]=""
+                  [likesCount]="i.likes"
+                  (change)="setAuthorLikes($event, i.firstName)"
+              ></app-like>
             </li>
           </ul>
       <ng-content select=".body"></ng-content>

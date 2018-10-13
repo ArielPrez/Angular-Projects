@@ -1,4 +1,6 @@
-
+#coursesId{
+  
+}
 img{
   display: flex;
   border: 1px solid black;
@@ -25,4 +27,8 @@ input{
 .title{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+}
+ul{
+  list-style-type: none;
+  
 }

@@ -1,3 +1,4 @@
+import { LikeChangedEventArgs } from './../like/like.component';
 import { AuthorsService } from './../services/authors.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,12 +16,23 @@ export class AuthorsComponent implements OnInit {
     likesCount: 4
   }  
 
-  constructor(service: AuthorsService) {
+  constructor(private service: AuthorsService) {
     this.authors = service.getAuthors();
-    console.log(this.authors);
   }
 
   ngOnInit() {
+  }
+
+  // METHOD THAT CALL THE 'AUTHORS.SERVICE' TO UPDATE THE AMOUNT OF LIKES,
+  //     USING AN 'EVENT EMITTER' WITH AN OUTPUT PROPERTY OF THE 'LIKE COMPONENT'
+  setAuthorLikes(eventArgs: LikeChangedEventArgs, a){
+    // debugger;
+    // console.log("Fav changed! ", eventArgs.newLike);
+    for(let i=0; i < this.authors.length ;i++){
+      if(this.authors[i].firstName === a) {
+        this.service.setAuthors(i,eventArgs.newLike);
+      }
+    }
   }
 
 }

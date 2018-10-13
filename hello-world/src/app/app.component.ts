@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular';
+  courses = [1,2,3];
   // star = faStar;
 
   getTitle(){
@@ -29,6 +30,7 @@ export class LikeComponent{
   get isSelected(){
     return this._likesCount;
   }
+  
 }
 
 

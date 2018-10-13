@@ -27,3 +27,8 @@ img{
   margin: 0 3%;
   width: 30%;
 }
+.list{
+  /* display: grid; */
+  position: relative;
+  float: left;
+}

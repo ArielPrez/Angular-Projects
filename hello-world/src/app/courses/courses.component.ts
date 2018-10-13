@@ -21,7 +21,6 @@ export class CoursesComponent {
   }
   
   constructor(service: CoursesService) {
-    // let service = new CoursesService();
     this.courses = service.getCourses();
   }
   deactivateBtn($event){
