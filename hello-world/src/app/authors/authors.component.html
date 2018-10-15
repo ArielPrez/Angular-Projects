@@ -1,4 +1,4 @@
-<br>
+
 <div class="card">
   <h5 class="card-header">
       <ng-content select=".heading"></ng-content>
@@ -10,12 +10,12 @@
         <ul>
             <li *ngFor="let i of authors" >
               <i>{{i.firstName}}
-              </i>
+              
               <app-like
-                  [isActive]=""
                   [likesCount]="i.likes"
                   (change)="setAuthorLikes($event, i.firstName)"
               ></app-like>
+            </i>
             </li>
           </ul>
       <ng-content select=".body"></ng-content>

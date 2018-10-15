@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'Angular';
   courses = [1,2,3];
   // star = faStar;
+  
 
   getTitle(){
     return this.title;

@@ -1,0 +1,24 @@
+.navbar{
+  background-color: rgb(215, 215, 215);
+}
+.form-inline{
+  width: 100%;
+}
+.btn{
+  border: 0.5px solid black;
+  border-right: 0px;
+}
+.last{
+  border-right: 0.5px solid black;
+}
+.btn:hover{
+  background-color: rgb(171, 171, 171);
+  color: rgb(255, 255, 255);
+  border: 1px solid black;
+  width: 10%;
+  height: auto;
+}
+.btn-outline-success{
+  color: black;
+  border-color: black;
+}
