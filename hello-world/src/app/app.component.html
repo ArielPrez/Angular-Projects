@@ -9,7 +9,7 @@
 
 <app-nav>
 </app-nav>
-<div class="" [ngSwitch]="viewMode">
+<div [ngSwitch]="viewMode">
 
   <div class="courses" *ngSwitchCase="'courses'">
     <app-courses></app-courses>
@@ -25,8 +25,11 @@
         </div>
     </app-authors>
   </div>
+  <div class="about" *ngSwitchCase="'about'">
+    <app-about></app-about>
+  </div>
   <div *ngSwitchDefault>
-    <p>Footer</p>
+    <!-- <p>Footer</p> -->
   </div>
 
 </div>

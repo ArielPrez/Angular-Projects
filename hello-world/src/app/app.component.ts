@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-// import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { Component, Input } from '@angular/core';
+import { NavComponent } from '../app/navbar/nav.component';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +10,8 @@ export class AppComponent {
   title = 'Angular';
   courses = [1,2,3];
   // star = faStar;
-  
-
+  // @Input('navBtn') viewMode: string;
+  viewMode = 'about';
   getTitle(){
     return this.title;
   }

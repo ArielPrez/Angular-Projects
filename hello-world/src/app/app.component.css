@@ -17,16 +17,12 @@ img{
   width: 5%;
   border: 1px solid black;
 }
-.courses{
+.courses, .authors, .about{
   display: inline-flex;
   margin: 0 3%;
   width: 30%;
 }
-.authors{
-  display: inline-flex;
-  margin: 0 3%;
-  width: 30%;
-}
+
 .list{
   /* display: grid; */
   position: relative;
