@@ -1,22 +1,8 @@
 #coursesId{
   
 }
-img{
-  display: flex;
-  border: 1px solid black;
-  width: 80%;
-  height: auto;
-}
-button{
-  display: flex;
-  margin: 5% 0;
-  padding: 5px 10px;
-  border-radius: 5px; 
-}
-.info{
-  /* border: 1px solid black; */
-  width: 100%;
-} 
+
+
 label{
   display: flex;
   margin: 5% 0;

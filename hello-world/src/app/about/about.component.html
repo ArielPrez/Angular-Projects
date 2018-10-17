@@ -1,9 +1,5 @@
 <div class="about">
-<button 
-    class="btn btn-primary [class.active]='isActive' " 
-    [style.backgroundColor] = "isActive ? 'blue' : 'gray'"
-    (click) = deactivateBtn($event)
-  >Save</button>
+
   <div class="container info">
       <div class="row">
         <div class="col">
@@ -35,6 +31,12 @@
       </div>
   </div>
 <br>
+<button 
+  class="btn btn-primary [class.active]='isActive' " 
+  [style.backgroundColor] = "isActive ? 'blue' : 'gray'"
+  (click) = deactivateBtn($event)
+>Save</button>
+
   <img src="{{ imageUrl }}" alt="Random Image">
 
 </div>
