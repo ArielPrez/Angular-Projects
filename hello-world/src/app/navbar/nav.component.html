@@ -2,29 +2,49 @@
   <form class="form-inline">
     <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Map View</button> -->
     <button 
-      [class.active]="viewMode=='courses'" 
-      (click)="viewMode='courses'" 
+      [class.active]="viewMode == 'courses'" 
+      (click)="viewMode = 'courses'" 
       class="btn btn-sm btn-outline-secondary" 
       type="button"
     >
     Courses
     </button>
     <button 
-      [class.active]="viewMode=='authors'" 
-      (click)="viewMode='authors'"
+      [class.active]="viewMode == 'authors'" 
+      (click)="viewMode = 'authors'"
       class="btn btn-sm btn-outline-secondary" 
       type="button"
     >
     Authors
     </button>
     <button 
-      [class.active]="viewMode=='about'"
-      (click)="viewMode='about'"
+      [class.active]="viewMode == 'about'"
+      (click)="viewMode = 'about'"
       class="btn btn-sm btn-outline-secondary last" 
       type="button"
     >
     About
     </button>
   </form>
+
+  <div class="showMe" [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'courses'">
+      <p>Courses</p>
+    </div>
+    <div *ngSwitchCase="'authors'">
+      <p>Authors</p>
+    </div>
+    <div *ngSwitchCase="'about'">
+      <p>About</p>
+    </div>
+    <div *ngSwitchDefault>
+      <p>Otherwise</p> 
+    </div>
+
+  </div>
+
 </nav>
-<!-- btn-outline-success -->
+
+
+
+

@@ -8,10 +8,7 @@ import { NavComponent } from '../app/navbar/nav.component';
 })
 export class AppComponent {
   title = 'Angular';
-  courses = [1,2,3];
-  // star = faStar;
-  // @Input('navBtn') viewMode: string;
-  viewMode = 'about';
+  
   getTitle(){
     return this.title;
   }
@@ -31,28 +28,11 @@ export class LikeComponent{
   get isSelected(){
     return this._likesCount;
   }
-  
+
+  setNav(eventArgs: NavComponent){
+
+  }
+
 }
 
-
-// export class Point{
-//   constructor(private _x?: number, private _y?: number){
-//   }
-//   draw(){
-//     console.log('X: '+this._x + ', Y: '+ this._y);
-//   }
-//   get x(){
-//     return this._x;
-//   }
-//   set x(value){
-//     if(value < 0)
-//       throw new Error('The value cannot be less than 0.');
-//     this._x = value;
-//   }
-// }
-
-// let point = new Point(1,2);
-// let x = point.x;
-// point.x = 10;
-// point.draw();
 

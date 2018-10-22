@@ -24,4 +24,13 @@ export class CoursesComponent {
   onFavChanged(eventArgs: FavoriteChangedEventArgs){
     this.l("Fav changed! ", eventArgs.newValue);
   }
+
+  onAdd(){
+    this.courses.push ({title: 'course4'});
+  }
+  onRemove(course){
+    let index = this.courses.indexOf(course);
+    this.l(index);
+    this.courses.splice(index, 1);
+  }
 }

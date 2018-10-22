@@ -15,6 +15,7 @@ import { LikeComponent } from './like/like.component';
 import { NavComponent } from './navbar/nav.component';
 import { AboutComponent } from './about/about.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { AboutComponent } from './about/about.component';
     TitleCasePipe,
     LikeComponent,
     NavComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

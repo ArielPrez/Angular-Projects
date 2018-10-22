@@ -9,12 +9,12 @@
 
 <app-nav>
 </app-nav>
-<div [ngSwitch]="viewMode">
 
-  <div class="courses" *ngSwitchCase="'courses'">
+
+  <div class="courses">
     <app-courses></app-courses>
   </div> 
-  <div class="authors" *ngSwitchCase="'authors'">
+  <div class="authors">
     <app-authors>
         <ng-container class="heading">
           {{ getTitle() }} Authors 
@@ -25,33 +25,11 @@
         </div>
     </app-authors>
   </div>
-  <div class="about" *ngSwitchCase="'about'">
+  <div class="about">
     <app-about></app-about>
   </div>
-  <div *ngSwitchDefault>
-    <!-- <p>Footer</p> -->
-  </div>
+  
 
-</div>
 
-<!-- 
-<div
-  class="list"
-  *ngIf="courses.length > 0; then coursesList else noCourses"
-></div>
-<ng-template #coursesList>
-    List of courses.
-</ng-template>
-<ng-template #noCourses>
-    No courses yet.
-</ng-template> -->
-<!-- 
-<ul class="nav nav-pills">
-  <li class="active"><a href="Map View"></a></li>
-  <li><a href="List View"></a></li>
-</ul>
-<div>
-  <div>Map View Content</div>
-  <div>List View Content</div>
-</div> -->
+
 

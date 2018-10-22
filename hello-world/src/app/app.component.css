@@ -4,7 +4,7 @@
   text-align: center;
   /* border: 1px solid black; */
   width: 20%;
-  height: auto;
+  height: 100%;
 }
 img{
   width: 50%;
@@ -20,11 +20,11 @@ img{
 .courses, .authors, .about{
   display: inline-flex;
   margin: 0 3%;
-  width: 30%;
+  width: 33%;
 }
 
-.list{
-  /* display: grid; */
+/* .list{
+  /* display: grid; 
   position: relative;
   float: left;
-}
+} */

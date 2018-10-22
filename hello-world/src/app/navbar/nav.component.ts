@@ -8,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   viewMode = 'courses';
+  
+  
   constructor() { }
 
   ngOnInit() {
   }
+  
 
 }
+
+
