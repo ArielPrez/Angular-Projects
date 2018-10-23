@@ -3,22 +3,25 @@
     {{title}}
     <button class="btn btn-sm btn-outline-secondary" (click)="onAdd()">Add Course</button>
   </h2>
-  
-  
-  <ul *ngFor="let curso of courses; index as i; even as isEven" >
-    <li> <b>{{ curso.title | uppercase}} - <span>{{ i+1 }} <span *ngIf="isEven">(EVEN)</span> </span></b> </li>
-    <li> <app-favorite [is_Fav]="post.isFavorite" (change)="onFavChanged($event)"></app-favorite>
-      <button class="btn btn-sm btn-outline-secondary" (click)="onRemove(curso)">Remove</button>
-    </li>
-    <li> <b>Students</b> - {{curso.students | number }} </li>
-    <!-- SEE HOW IT ROUND THE SECOND DECIMAL NUMBER AFTER THE POINT -->
-    <li> <b>Rating</b> - {{curso.rating | number:'1.1-2' }} </li>
-    <!-- APPLY THE CURRENCY SYMBOL (USD,EUR,AUD,JPY etc...)-->
-    <li> <b>Price</b> - {{curso.price | currency:'EUR' }} </li>
-    <li> <b>Release Date</b> - {{curso.releaseDate | date:'mediumDate'}} </li>
-    <li> <b>Description:</b> <br>{{curso.description | summary }} </li> <!-- THE CUSTOM PIPE 'summary : 5' DEFINE THE MAXIMUM AMOUNT OF CHARACTERS TO SHOW -->
-  </ul>
-  
-  
+  <div *ngIf="courses.length > 0; else noCourses">
+    <ul *ngFor="let curso of courses; index as i; even as isEven; trackBy: trackCourse" >
+    
+        <li> <b>{{ curso.title | uppercase}} - <span>{{ i+1 }} <span *ngIf="isEven">(EVEN)</span> </span></b> </li>
+        <li> <app-favorite [is_Fav]="post.isFavorite" (change)="onFavChanged($event)"></app-favorite>
+          <button class="btn btn-sm btn-outline-secondary" (click)="onRemove(curso)">Remove</button>
+        </li>
+        <li> <b>Students</b> - {{curso.students | number }} </li>
+        <!-- SEE HOW IT ROUND THE SECOND DECIMAL NUMBER AFTER THE POINT -->
+        <li> <b>Rating</b> - {{curso.rating | number:'1.1-2' }} </li>
+        <!-- APPLY THE CURRENCY SYMBOL (USD,EUR,AUD,JPY etc...)-->
+        <li> <b>Price</b> - {{curso.price | currency:'EUR' }} </li>
+        <li> <b>Release Date</b> - {{curso.releaseDate | date:'mediumDate'}} </li>
+        <li> <b>Description:</b> <br>{{curso.description | summary }} </li> <!-- THE CUSTOM PIPE 'summary : 5' DEFINE THE MAXIMUM AMOUNT OF CHARACTERS TO SHOW -->
+    
+    </ul>
+  </div>
+  <ng-template #noCourses>
+      No courses.
+  </ng-template>
 
-  
+</div>

@@ -1,7 +1,10 @@
+<!-- EXAMPLE OF [ngClass]="{'class': true}" WITH AN ATTRIBUTE DIRECTIVE -->
 <span
   class="far fa-heart"
-  [class.fas]="isActive"
-  [class.far]="!isActive"
+  [ngClass]="{
+    'fas': isActive,
+    'far': !isActive
+  }"
   (click)="onClick()"
 >
 {{ likesCount }}

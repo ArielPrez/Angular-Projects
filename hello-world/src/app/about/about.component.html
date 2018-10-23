@@ -33,7 +33,12 @@
 <br>
 <button 
   class="btn btn-primary [class.active]='isActive' " 
-  [style.backgroundColor] = "isActive ? 'blue' : 'gray'"
+  
+  [ngStyle]="{
+    'backgroundColor': isActive ? 'blue' : 'gray',
+    'color': isActive ? 'white' : 'black',
+    'fontWeight': isActive ? 'bold' : 'normal'
+  }"
   (click) = deactivateBtn($event)
 >Save</button>
 

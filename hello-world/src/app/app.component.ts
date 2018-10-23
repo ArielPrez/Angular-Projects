@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { NavComponent } from '../app/navbar/nav.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -29,9 +28,7 @@ export class LikeComponent{
     return this._likesCount;
   }
 
-  setNav(eventArgs: NavComponent){
-
-  }
+  
 
 }
 

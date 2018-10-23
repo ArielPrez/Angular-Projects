@@ -26,11 +26,16 @@ export class CoursesComponent {
   }
 
   onAdd(){
-    this.courses.push ({title: 'course4'});
+    this.courses.push ({title: 'course '});
   }
   onRemove(course){
     let index = this.courses.indexOf(course);
     this.l(index);
     this.courses.splice(index, 1);
+  }
+  // METHOD THAT AVOID THE USES OF MORE MEMORY AND NETWORK RESOURCES WHEN THE BROWSER TRY TO RE-GENERATE CODE
+  // IN THIS CASE A LIST OF COURSES TO NO RE-RENDER A DOM ELEMENT
+  trackCourse(index, course){
+    return course ? course.id : undefined;
   }
 }
