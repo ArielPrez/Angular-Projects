@@ -8,14 +8,22 @@
             
         </div>
         <div class="col">
-            <input name="name" #name (keyup.enter) = "enterWasPres(name.value)" type="text">
-            <input name="myMail" [(ngModel)]="eMail" (keyup.enter)="onKeyUp()">
+          <!-- USING CUSTOM DIRECTIVES TO CHANGE THE VALUE ENTERED IN THE INPUT WITH DIFFERENT PROPERTIES -->
+            <!-- APPLYING DIRECTIVE AS AN ATRIVUTE AND USED AS TARGET FORMAT -->
+            <input name="name" #name (keyup.enter) = "enterWasPres(name.value)" [appInputFormat]="'uppercase'" >
+            <!-- APPLYING DIRECTIVE AS AN ATRIVUTE AND USE PROPERTY BINDING TO SET THE TARGET FORMAT -->
+            <input 
+              name="myMail" 
+              [(ngModel)]="eMail" 
+              (keyup.enter)="onKeyUp()" 
+              appInputFormat [formato]="'lowercase'" 
+              >
             <label for="myMail">
                 {{eMail}}
             </label>
         </div>
         
-  </div>
+      </div>
   </div>
   <div class="container title">
       <div class="row">

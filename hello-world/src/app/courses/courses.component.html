@@ -14,9 +14,11 @@
         <!-- SEE HOW IT ROUND THE SECOND DECIMAL NUMBER AFTER THE POINT -->
         <li> <b>Rating</b> - {{curso.rating | number:'1.1-2' }} </li>
         <!-- APPLY THE CURRENCY SYMBOL (USD,EUR,AUD,JPY etc...)-->
-        <li> <b>Price</b> - {{curso.price | currency:'EUR' }} </li>
-        <li> <b>Release Date</b> - {{curso.releaseDate | date:'mediumDate'}} </li>
-        <li> <b>Description:</b> <br>{{curso.description | summary }} </li> <!-- THE CUSTOM PIPE 'summary : 5' DEFINE THE MAXIMUM AMOUNT OF CHARACTERS TO SHOW -->
+        <li> <b>Price</b> - {{curso?.price | currency:'EUR' }} </li>
+        <!-- WHEN DEALING WITH COMPLEX OBJECTS USE THE "Safe Traversal Operator: (?)" BEFORE THE POINT -->
+        <!-- <span>{{ task.assignee?.name }}</span> -->
+        <li> <b>Release Date</b> - {{curso?.releaseDate | date:'mediumDate'}} </li>
+        <li> <b>Description:</b> <br>{{curso?.description | summary }} </li> <!-- THE CUSTOM PIPE 'summary : 5' DEFINE THE MAXIMUM AMOUNT OF CHARACTERS TO SHOW -->
     
     </ul>
   </div>

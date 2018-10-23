@@ -14,6 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LikeComponent } from './like/like.component';
 import { NavComponent } from './navbar/nav.component';
 import { AboutComponent } from './about/about.component';
+import { InputFormatDirective } from './directives/input-format.directive';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AboutComponent } from './about/about.component';
     LikeComponent,
     NavComponent,
     AboutComponent,
+    InputFormatDirective,
   ],
   imports: [
     BrowserModule,
