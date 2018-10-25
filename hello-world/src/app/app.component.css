@@ -11,16 +11,14 @@ img{
   display: inline-flex;
   
 }
-.fav{
-  display: inline-flex;
-  margin: 0 0 0 1%;
-  width: 5%;
-  border: 1px solid black;
-}
+
 .courses, .authors, .about{
   display: inline-flex;
   margin: 0 3%;
-  width: 33%;
+  width: 35%;
+}
+.authors{
+  width: 25%;
 }
 
 /* .list{

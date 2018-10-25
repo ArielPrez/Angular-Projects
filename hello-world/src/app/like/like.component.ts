@@ -14,7 +14,7 @@ export class LikeComponent {
   authors;
 
   onClick(){
-    debugger;
+    // debugger;
     this.isActive = !this.isActive;
     this.likeEvent.emit({newLike: this.isActive});
   }

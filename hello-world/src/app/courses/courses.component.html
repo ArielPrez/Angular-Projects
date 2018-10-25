@@ -1,29 +1,67 @@
-<div id="coursesId">
+<div id="cursesID">
   <h2>
     {{title}}
     <button class="btn btn-sm btn-outline-secondary" (click)="onAdd()">Add Course</button>
   </h2>
   <div *ngIf="courses.length > 0; else noCourses">
-    <ul *ngFor="let curso of courses; index as i; even as isEven; trackBy: trackCourse" >
+    <div class="ul courseLayout" *ngFor="let curso of courses; index as i; even as isEven; trackBy: trackCourse" >
     
-        <li> <b>{{ curso.title | uppercase}} - <span>{{ i+1 }} <span *ngIf="isEven">(EVEN)</span> </span></b> </li>
-        <li> <app-favorite [is_Fav]="post.isFavorite" (change)="onFavChanged($event)"></app-favorite>
-          <button class="btn btn-sm btn-outline-secondary" (click)="onRemove(curso)">Remove</button>
-        </li>
-        <li> <b>Students</b> - {{curso.students | number }} </li>
-        <!-- SEE HOW IT ROUND THE SECOND DECIMAL NUMBER AFTER THE POINT -->
-        <li> <b>Rating</b> - {{curso.rating | number:'1.1-2' }} </li>
-        <!-- APPLY THE CURRENCY SYMBOL (USD,EUR,AUD,JPY etc...)-->
-        <li> <b>Price</b> - {{curso?.price | currency:'EUR' }} </li>
-        <!-- WHEN DEALING WITH COMPLEX OBJECTS USE THE "Safe Traversal Operator: (?)" BEFORE THE POINT -->
-        <!-- <span>{{ task.assignee?.name }}</span> -->
-        <li> <b>Release Date</b> - {{curso?.releaseDate | date:'mediumDate'}} </li>
-        <li> <b>Description:</b> <br>{{curso?.description | summary }} </li> <!-- THE CUSTOM PIPE 'summary : 5' DEFINE THE MAXIMUM AMOUNT OF CHARACTERS TO SHOW -->
-    
-    </ul>
+      <div 
+        class="unfoldTitle"
+        [class.expanded]="isExpanded"
+        (click)="toggle()"
+      > 
+      <b>{{ curso.title | uppercase}} - <span>{{ i+1 }} </span></b>
+      <span *ngIf="isEven">(EVEN)</span>
+      <span 
+        class="fas"
+        [ngClass]="{
+          'fa-angle-down': !isExpanded,
+          'fa-angle-up': isExpanded
+        }"
+      ></span> 
+      
+      </div>
+      <div 
+        *ngIf="isExpanded"
+        class="unfoldBody"
+      >
+      <!-- [is_Fav]="post.isFavorite"  -->
+          <li> <b>Students</b> - {{curso.students | number }} </li>
+          <!-- SEE HOW IT ROUND THE SECOND DECIMAL NUMBER AFTER THE POINT -->
+          <li> <b>Rating</b> - {{curso.rating | number:'1.1-2' }} </li>
+          <!-- APPLY THE CURRENCY SYMBOL (USD,EUR,AUD,JPY etc...)-->
+          <li> <b>Price</b> - {{curso?.price | currency:'EUR' }} </li>
+          <!-- WHEN DEALING WITH COMPLEX OBJECTS USE THE "Safe Traversal Operator: (?)" BEFORE THE POINT -->
+          <!-- <span>{{ task.assignee?.name }}</span> -->
+          <li> <b>Release Date</b> - {{curso?.releaseDate | date:'mediumDate'}} </li>
+          <li> <b>Description:</b> <br>{{curso?.description | summary }} </li> <!-- THE CUSTOM PIPE 'summary : 5' DEFINE THE MAXIMUM AMOUNT OF CHARACTERS TO SHOW -->    
+          <br>
+          <li> <app-favorite (change)="onFavChanged($event)"></app-favorite>
+            <button class="btn btn-sm btn-outline-secondary" (click)="onRemove(curso)">Remove</button>
+          </li>
+      </div>
+    </div>
   </div>
   <ng-template #noCourses>
       No courses.
   </ng-template>
 
 </div>
+
+<!-- fas
+  fa-sort-down
+  fa-chevron-circle-down
+  fa-angle-down
+ -->
+
+<!-- <div class="zippy">
+  <div class="zippy-heading"
+    [class.expanded]="isExpanded"
+  >
+    {{ title }}
+  </div>
+  <div class="zippy-body">
+    <ng-content></ng-content>
+  </div>
+</div> -->

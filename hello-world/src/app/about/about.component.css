@@ -1,9 +1,12 @@
 .about{
-  margin: 5%;
+  margin: 0 0 0 80%;
 }
-.info{
-  /* border: 1px solid black; */
-  width: 100%;
+.info, .title{
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 5px; 
+  margin: 5%;
+  padding: 25%;
 } 
 img{
 
@@ -17,4 +20,11 @@ button{
   margin: 5% 0;
   padding: 5px 10px;
   border-radius: 5px; 
+}
+label{
+  display: flex;
+  margin: 5% 0;
+}
+input{
+  display: flex;
 }

@@ -13,16 +13,23 @@ export class CoursesComponent {
   l = console.log;
   courses;
   post={
-    title: 'Star',
+    title: 'thumb',
     isFavorite: false
   }
+  isExpanded: boolean ;
+
   
+  toggle(){
+    this.isExpanded = !this.isExpanded;
+  }
   constructor(service: CoursesService) {
     this.courses = service.getCourses();
   }
   
   onFavChanged(eventArgs: FavoriteChangedEventArgs){
-    this.l("Fav changed! ", eventArgs.newValue);
+    // this.post.isFavorite = eventArgs.newValue;
+    this.l("Fav up! ", eventArgs.up);
+    this.l("Fav down! ", eventArgs.down);
   }
 
   onAdd(){

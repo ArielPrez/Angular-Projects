@@ -1,21 +1,47 @@
-
-label{
-  display: flex;
-  margin: 5% 0;
-}
-input{
-  display: flex;
+#cursesID{
+  width: 450px;
 }
 .title{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
-ul{
+.courseLayout{
+  border-top: 0.5px solid black;
+}
+.ul{
   list-style-type: none;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 2%;
+  margin: 2%;
   
+}
+.unfoldTitle:hover {
+  background-color: #e8e8e8;
 }
 button{
   position: relative;
   float: right;
   margin: 1% 0 0 0;
+}
+.unfoldTitle{
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5%;
+  cursor: pointer;
+  border-radius: 6px;
+
+}
+.unfoldBody{
+  margin: 2%;
+}
+.expanded{
+  border: 1px solid #ccc;
+
+  background: e8e8e8;
+   /* #f0f0f0; */
+}
+.fa-angle-down, .fa-angle-up{
+  position: relative;
+  float: right;
 }
