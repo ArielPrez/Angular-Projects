@@ -15,6 +15,7 @@ import { LikeComponent } from './like/like.component';
 import { NavComponent } from './navbar/nav.component';
 import { AboutComponent } from './about/about.component';
 import { InputFormatDirective } from './directives/input-format.directive';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { InputFormatDirective } from './directives/input-format.directive';
     NavComponent,
     AboutComponent,
     InputFormatDirective,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
