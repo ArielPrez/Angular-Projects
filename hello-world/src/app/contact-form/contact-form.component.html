@@ -1,8 +1,33 @@
 <!-- Template Driven approach Form -->
-<form>
+<form #f="ngForm" (ngSubmit)="submit(f)" >
   <div class="form-group">
     <label for="">First Name:</label>
-    <input ngModel name="firstName" #firstName="" (change)="log(firstName)" id="firstName" type="text" class="form-control">
+    <input 
+      required 
+      minlength="3" 
+      maxlength="10" 
+      pattern="" 
+      ngModel 
+      name="firstName" 
+      #firstName="ngModel" 
+      (change)="log(firstName)" 
+      id="firstName" 
+      type="text" 
+      class="form-control"
+     >
+    <div 
+      class="alert alert-danger" 
+      *ngIf="firstName.touched && !firstName.valid">
+      <div *ngIf="firstName.errors.required" >
+        First Name is required.
+      </div>
+      <div *ngIf="firstName.errors.minlength" >
+        First Name must have more than {{firstName.errors.minlength.requiredLength}} characters.
+      </div>
+      <div *ngIf="firstName.errors.pattern">
+        First Name has a specific pattern.
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="comment">Comment:</label>
