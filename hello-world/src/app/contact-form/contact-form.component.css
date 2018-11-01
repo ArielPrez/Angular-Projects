@@ -1,3 +1,25 @@
 .form-control.ng-touched.ng-invalid{
   border: 2px solid rgb(227, 89, 89);
 }
+.leftForm{
+  display: inline-block;
+  /* float: left; */
+  
+}
+.checkbox{
+  border: 0.5px solid rgba(116, 116, 116, 0.25);
+  border-radius: 3px;
+  margin: 2% 0;
+  padding: 4%;
+  width: 300px;
+  /* background-color: rgb(255, 255, 255); */
+}
+input #isSubscribed{
+  margin-right: 2%;
+  border-color: blue;
+}
+.contactMeth{
+  display: inline-block;
+  float: right;
+  /* margin-left: 200px; */
+}
