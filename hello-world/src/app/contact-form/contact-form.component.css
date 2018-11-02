@@ -14,11 +14,11 @@
   width: 300px;
   /* background-color: rgb(255, 255, 255); */
 }
-input #isSubscribed{
+input #isHasGuarantee{
   margin-right: 2%;
   border-color: blue;
 }
-.contactMeth{
+.contactMeth .category .radioLbl{
   display: inline-block;
   float: right;
   /* margin-left: 200px; */

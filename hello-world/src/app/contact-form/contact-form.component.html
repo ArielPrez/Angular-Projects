@@ -1,85 +1,108 @@
 <!-- Template Driven approach Form -->
 <form #f="ngForm" (ngSubmit)="submit(f)" >
   <div class="leftForm">
+    <!-- NAME -->
       <div class="form-group">
-          <label for="">First Name:</label>
-          <input 
+          <label for="">Course Name:</label>
+          <input
             required 
             minlength="3" 
-            maxlength="10" 
+            maxlength="20" 
             pattern="" 
             ngModel 
-            name="firstName" 
-            #firstName="ngModel" 
-            (change)="log(firstName)" 
-            id="firstName" 
-            type="text" 
+            name="courseName" 
+            #courseName="ngModel" 
+            (change)="log(courseName)" 
+            id="courseName"
+            type="text"
             class="form-control"
            >
           <div 
             class="alert alert-danger" 
-            *ngIf="firstName.touched && !firstName.valid">
-            <div *ngIf="firstName.errors.required" >
-              First Name is required.
+            *ngIf="courseName.touched && !courseName.valid">
+            <div *ngIf="courseName.errors.required" >
+              Course Name is required.
             </div>
-            <div *ngIf="firstName.errors.minlength" >
-              First Name must have more than {{firstName.errors.minlength.requiredLength}} characters.
+            <div *ngIf="courseName.errors.minlength" >
+              Course Name must have more than {{courseName.errors.minlength.requiredLength}} characters.
             </div>
-            <div *ngIf="firstName.errors.pattern">
-              First Name has a specific pattern.
+            <div *ngIf="courseName.errors.pattern">
+              Course Name has a specific pattern.
             </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="comment">Comment:</label>
-          <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
-        </div>
-      
+      </div>
+        <!-- PRICE -->
         <div>
-          <label class="checkbox" for="isSubscribed">
+
+        </div>
+        <!-- RELEASEDATE -->
+        <div>
+          
+        </div>
+        <!-- CATEGORY -->
+        <div class="form-group category">
+          <!-- Contact Method First Example -->
+          <!-- Single Option -->
+          <label for="category">
+              Contact Method
+          </label>
+          <select ngModel name="category" id="category" class="form-control">
+            <option value="">- Select One -</option>
+            <!-- Passing the "ID" -->
+            <option
+              *ngFor="let category of categoryMethod"
+              [value]="category.id"
+            >
+            {{ category.name }}
+            </option>
+          </select>
+        </div>
+        <!-- DESCRIPTION -->
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea ngModel name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+        </div>
+        <!-- CHECK BOXES - GUARANTEE -->
+        <div class="form-group guarantee">
+          <label class="checkbox" for="isHasGuarantee">
             <!--The [ngModel Directive] create an instance of the FormControl Object for this input field -->
             <input 
               type="checkbox" 
               ngModel 
-              name="isSubscribed" 
-              id="isSubscribed"
-            > Subscribe to mailing list.
+              name="isHasGuarantee" 
+              id="isHasGuarantee"
+            > 30-day money-back guarantee.
           </label>
         </div> 
       
   </div>
-  
-  <div class="contactMeth">
-    <!-- Contact Method First Example -->
-    <!-- Single Option -->
-    <label for="contactMethod">
-      Contact Method
-    </label>
-    <select ngModel name="contactMethod" id="contactMethod" class="form-control">
-      <option value="">- Select One -</option>
-      <!-- Passing the "ID" -->
-      <option 
-        *ngFor="let method of contactMethods"
-        [value]="method.id"
-      >
-      {{ method.name }}
-      </option>
-    </select>
+  <!-- DROP-DOWN LIST -->
+  <div class="form-group contactMeth">
     <!-- Contact Method Second Example -->
     <!-- Multiple Option -->
-    <label for="contactMethodSE">
+    <label for="categoryMethodSE">
         Contact Method - Second-Example
     </label>
-    <select multiple ngModel name="contactMethod" id="contactMethod" class="form-control">
+    <select multiple ngModel name="categoryMethodSE" id="categoryMethodSE" class="form-control">
         <option value="">- Select One -</option>
         <!-- Passing the Object -->
         <option 
-          *ngFor="let method of contactMethods"
-          [ngValue]="method"
+          *ngFor="let category of categoryMethod"
+          [ngValue]="category"
         >
-        {{ method.name }}
+        {{ category.name }}
         </option>
       </select>
+  </div>
+  <!-- RADIO BUTTONS CREATED DINAMICALLY-->
+  <div 
+    class="form-group radio"
+    *ngFor="let category of categoryMethod"
+  >
+    <label class="radioLbl" for="">
+      <input ngModel type="radio" name="categoryMethod" [value]="category.id">
+      {{ category.name }}
+    </label>
   </div>
   <p>
       {{ f.value | json }}
