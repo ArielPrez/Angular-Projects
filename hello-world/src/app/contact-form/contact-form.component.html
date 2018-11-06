@@ -1,6 +1,7 @@
 <!-- Template Driven approach Form -->
 <form #f="ngForm" (ngSubmit)="submit(f)" >
   <div class="leftForm">
+    <span class="title"> <h3>{{title}}</h3> </span>
     <!-- NAME -->
       <div class="form-group">
           <label for="">Course Name:</label>
@@ -32,21 +33,67 @@
           </div>
       </div>
         <!-- PRICE -->
-        <div>
-
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input 
+            required
+            minlength="2"
+            ngModel
+            name="price"
+            #price="ngModel"
+            id="price"
+            type="text"
+            class="form-control"
+          >
+          <div 
+            class="alert alert-danger"
+            *ngIf="price.touched && !price.valid"
+          >
+            <div *ngIf="price.errors.required">
+              Price is required.
+            </div>
+            <div *ngIf="price.errors.minlength">
+              Price must have more than {{price.errors.minlength.requiredLength}} characters.
+            </div>
+          </div>
         </div>
         <!-- RELEASEDATE -->
-        <div>
-          
+        <div class="form-group">
+          <label class="date" for="date">Date:</label>
+          <input 
+            type="date" 
+            name="date" 
+            id="date"
+            ngModel
+            #price="ngModel"   
+          >
+          <div 
+            class="alert alert-danger"
+            *ngIf="date.touched && !date.valid"
+          >
+            <div *ngIf="date.errors.required">
+              Price is required.
+            </div>
+            <div *ngIf="date.errors.minlength">
+              Price must have more than {{date.errors.minlength.requiredLength}} characters.
+            </div>
+          </div>
         </div>
         <!-- CATEGORY -->
         <div class="form-group category">
           <!-- Contact Method First Example -->
           <!-- Single Option -->
           <label for="category">
-              Contact Method
+              Category
           </label>
-          <select ngModel name="category" id="category" class="form-control">
+          <select 
+            required
+            ngModel 
+            #category="ngModel"
+            name="category" 
+            id="category" 
+            class="form-control"
+          >
             <option value="">- Select One -</option>
             <!-- Passing the "ID" -->
             <option
@@ -55,7 +102,16 @@
             >
             {{ category.name }}
             </option>
+          
           </select>
+          <div 
+            class="alert alert-danger" 
+            *ngIf="category.touched && !category.valid"
+          >
+            <div *ngIf="category.errors.required" >
+              Category is required.
+            </div>
+          </div>
         </div>
         <!-- DESCRIPTION -->
         <div class="form-group">
@@ -81,7 +137,7 @@
     <!-- Contact Method Second Example -->
     <!-- Multiple Option -->
     <label for="categoryMethodSE">
-        Contact Method - Second-Example
+        Course Category - Second-Example
     </label>
     <select multiple ngModel name="categoryMethodSE" id="categoryMethodSE" class="form-control">
         <option value="">- Select One -</option>
@@ -93,17 +149,18 @@
         {{ category.name }}
         </option>
       </select>
+      <!-- RADIO BUTTONS CREATED DINAMICALLY-->
+    <div 
+      class="radio"
+      *ngFor="let category of categoryMethod"
+    >
+      <label for="radioLbl">
+        <input ngModel type="radio" name="radioLbl" id="radioLbl" [value]="category.id">
+        {{ category.name }}
+      </label>
+    </div>
   </div>
-  <!-- RADIO BUTTONS CREATED DINAMICALLY-->
-  <div 
-    class="form-group radio"
-    *ngFor="let category of categoryMethod"
-  >
-    <label class="radioLbl" for="">
-      <input ngModel type="radio" name="categoryMethod" [value]="category.id">
-      {{ category.name }}
-    </label>
-  </div>
+  
   <p>
       {{ f.value | json }}
   </p>

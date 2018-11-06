@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactFormComponent implements OnInit {
   categoryMethod = [
-    { id: 1, name: 'Email' },
-    { id: 2, name: 'Phone' }
+    { id: 1, name: 'Development' },
+    { id: 2, name: 'Art' },
+    { id: 3, name: 'Languages' }
   ];
+  title =  'Create Course Form';
   constructor() { }
 
   ngOnInit() {

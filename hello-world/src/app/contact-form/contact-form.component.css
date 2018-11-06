@@ -18,8 +18,14 @@ input #isHasGuarantee{
   margin-right: 2%;
   border-color: blue;
 }
-.contactMeth .category .radioLbl{
+.contactMeth{
   display: inline-block;
   float: right;
   /* margin-left: 200px; */
+}
+.radio{
+  margin-top: 20px; 
+}
+.date{
+  margin-right: 5%;
 }
