@@ -47,8 +47,7 @@
           >
           <div 
             class="alert alert-danger"
-            *ngIf="price.touched && !price.valid"
-          >
+            *ngIf="price.touched && !price.valid">
             <div *ngIf="price.errors.required">
               Price is required.
             </div>
@@ -65,7 +64,7 @@
             name="date" 
             id="date"
             ngModel
-            #price="ngModel"   
+            #date="ngModel"   
           >
           <div 
             class="alert alert-danger"

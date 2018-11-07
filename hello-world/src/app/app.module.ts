@@ -1,7 +1,7 @@
 import { AuthorsService } from './services/authors.service';
 import { CoursesService } from './services/courses.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { NavComponent } from './navbar/nav.component';
 import { AboutComponent } from './about/about.component';
 import { InputFormatDirective } from './directives/input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 
 @NgModule({
@@ -31,11 +32,13 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     AboutComponent,
     InputFormatDirective,
     ContactFormComponent,
+    SignupFormComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [
     CoursesService,
