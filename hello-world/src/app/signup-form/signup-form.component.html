@@ -6,14 +6,19 @@
             id="username" 
             type="text" 
             class="form-control">
+        <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+            <div *ngIf="username.errors.required">Username is required.</div>
+            <div *ngIf="username.errors.minlength">Username should be minimum {{ username.errors.minlength.requiredLength }} characters.</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="password">Password</label>
         <input 
-            formControlName="pasword"
+            formControlName="password"
             id="password" 
             type="text" 
             class="form-control">
+        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">Password is required</div>
     </div>
-    <button class="btn btn-primary" type="submit">Sign Up</button>
+    <button class="btn btn-primary" [disabled]="!f.valid" type="submit">Sign Up</button>
 </form>
