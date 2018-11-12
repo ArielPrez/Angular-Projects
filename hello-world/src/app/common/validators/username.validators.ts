@@ -1,7 +1,11 @@
+import { SignupFormComponent } from './../../signup-form/signup-form.component';
 import { AbstractControl, ValidationErrors } from "@angular/forms";
-import { NullTemplateVisitor } from "@angular/compiler";
 
 export class UsernameValidators{
+
+  constructor(public signUpComp: SignupFormComponent){}
+  signUpC = new SignupFormComponent();
+
   static cannotContainSpace(control: AbstractControl) : ValidationErrors | null {
     if((control.value as string).indexOf(' ') >= 0){
       return { cannotContainSpace: true };
@@ -26,9 +30,12 @@ export class UsernameValidators{
         }else{
           resolve (null);
         }
-      }, 1500);
- 
+      }, 3500);
+
+      // AQUI QUIERO ACCEDER A UN METODO DE LA CLASE "SignupFormComponent"
+    
+      this.signUpComp.intervalClockOFF();
     });
-     
   }
+
 }

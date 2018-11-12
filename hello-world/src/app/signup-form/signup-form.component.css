@@ -7,3 +7,10 @@
   padding-bottom: 1px;
   /* width: 80%; */
 }
+label{
+  width: 100%;
+}
+.icon{
+  display: inline;
+  float: right;
+}
