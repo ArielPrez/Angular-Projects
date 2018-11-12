@@ -4,7 +4,7 @@ import { AbstractControl, ValidationErrors } from "@angular/forms";
 export class UsernameValidators{
 
   constructor(public signUpComp: SignupFormComponent){}
-  signUpC = new SignupFormComponent();
+ // signUpC = new SignupFormComponent();
 
   static cannotContainSpace(control: AbstractControl) : ValidationErrors | null {
     if((control.value as string).indexOf(' ') >= 0){

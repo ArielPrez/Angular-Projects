@@ -1,23 +1,29 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UsernameValidators } from '../common/validators/username.validators';
+import { UsernameValidatorsService } from '../services/username-validators.service';
 
 @Component({
   selector: 'signup-form',
   templateUrl: './signup-form.component.html',
-  styleUrls: ['./signup-form.component.css']
+  styleUrls: ['./signup-form.component.css'],
+  providers:[UsernameValidatorsService] //Agrege el servicio
 })
+
 export class SignupFormComponent {
+  //Aqui puse el copy del servicio
+  constructor(public UsernameValidators: UsernameValidatorsService) {}
+ 
   @Input('clock') clock: number;
   intervalId;
 
   form = new FormGroup({
     username: new FormControl('',
     {
-      validators: [Validators.required, 
-      UsernameValidators.cannotContainSpace,
-      UsernameValidators.minimCharacters],
-      asyncValidators: UsernameValidators.shouldBeUnique
+      validators: [Validators.required,
+        //ya pones el this 
+      this.UsernameValidators.cannotContainSpace,
+      this.UsernameValidators.minimCharacters],
+      asyncValidators: this.UsernameValidators.shouldBeUnique
     }),
     password: new FormControl('', Validators.required)
   });

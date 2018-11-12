@@ -8,14 +8,14 @@ export class UsernameValidatorsService {
 
   constructor() { }
 
-  static cannotContainSpace(control: AbstractControl) : ValidationErrors | null {
+   cannotContainSpace(control: AbstractControl) : ValidationErrors | null {
     if((control.value as string).indexOf(' ') >= 0){
       return { cannotContainSpace: true };
       // , minlength:{requiredLength: 3, actualLength: control.value.length}
     }
     return null;
   }
-  static minimCharacters(control: AbstractControl) : ValidationErrors | null {
+   minimCharacters(control: AbstractControl) : ValidationErrors | null {
     let minChars = 3;
     if(control.value.length < minChars){
       return { minimCharacters: true, minlength:{requiredLength: minChars, actualLength: control.value.length} };
@@ -24,9 +24,10 @@ export class UsernameValidatorsService {
   }
 
 // ASYNCHRONOUS OPERATION TO SIMULATE A CALL TO THE SERVER TO CHECK IF THE USER IS TAKEN
-  static shouldBeUnique(control: AbstractControl) : Promise<ValidationErrors | null> {
+  shouldBeUnique(control: AbstractControl) : Promise<ValidationErrors | null> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
+        console.log("log")
         if(control.value === 'Ariel'){
           resolve({ shouldBeUnique: true });
         }else{
