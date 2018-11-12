@@ -1,10 +1,12 @@
-import { SignupFormComponent } from '../../signup-form/signup-form.component';
+import { Injectable } from '@angular/core';
 import { AbstractControl, ValidationErrors } from "@angular/forms";
 
-export class UsernameValidators{
+@Injectable({
+  providedIn: 'root'
+})
+export class UsernameValidatorsService {
 
-  constructor(public signUpComp: SignupFormComponent){}
-  signUpC = new SignupFormComponent();
+  constructor() { }
 
   static cannotContainSpace(control: AbstractControl) : ValidationErrors | null {
     if((control.value as string).indexOf(' ') >= 0){
@@ -37,5 +39,6 @@ export class UsernameValidators{
      // this.signUpComp.intervalClockOFF();
     });
   }
+
 
 }

@@ -1,5 +1,6 @@
 import { AuthorsService } from './services/authors.service';
 import { CoursesService } from './services/courses.service';
+import { UsernameValidatorsService } from './services/username-validators.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -42,7 +43,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
   ],
   providers: [
     CoursesService,
-    AuthorsService
+    AuthorsService,
+    UsernameValidatorsService
   ],
   bootstrap: [AppComponent]
 })
