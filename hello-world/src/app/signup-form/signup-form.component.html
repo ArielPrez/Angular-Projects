@@ -46,5 +46,5 @@
             class="form-control">
         <div *ngIf="password.touched && password.invalid" class="alert alert-danger"> <p>Password is required.</p> </div>
     </div>
-    <button class="btn btn-primary" [disabled]="!form.valid" type="submit">Sign Up</button>
+    <button class="btn btn-primary" (click)="intervalClockOFF()" [disabled]="!form.valid" type="submit">Sign Up</button>
 </form>
