@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { UsernameValidators } from '../common/validators/username.validators';
 
 @Component({
@@ -11,19 +11,40 @@ export class SignupFormComponent {
   @Input('clock') clock: number;
   intervalId;
 
-  form = new FormGroup({
-    account: new FormGroup({
-      username: new FormControl('',
-      {
-        validators: [Validators.required, 
-        UsernameValidators.cannotContainSpace,
-        UsernameValidators.minimCharacters],
-        asyncValidators: UsernameValidators.shouldBeUnique
-      }),
-      password: new FormControl('', Validators.required)
-    })
+  // form = new FormGroup({
+  //   //FormGroup as complex object of a Form nested in another FormGroup
+  //   account: new FormGroup({
+  //     username: new FormControl('',
+  //     {
+  //       validators: [Validators.required, 
+  //       UsernameValidators.cannotContainSpace,
+  //       UsernameValidators.minimCharacters],
+  //       asyncValidators: UsernameValidators.shouldBeUnique
+  //     }),
+  //     password: new FormControl('', Validators.required)
+  //   })
     
-  });
+  // });
+
+  form;
+
+// CONSTRUCTOR OF THE CLASS USED TO IMPLEMENT A FORM-BUILDER
+  constructor(fb: FormBuilder){
+    this.form = fb.group({
+      //FormGroup as complex object of a Form nested in another FormGroup
+      account: fb.group({
+        username: ['',
+          {
+            validators: [Validators.required, 
+            UsernameValidators.cannotContainSpace,
+            UsernameValidators.minimCharacters],
+            asyncValidators: UsernameValidators.shouldBeUnique
+          }
+        ],
+        password: ['', Validators.required]
+      })
+    });
+  }
 
   login(){
     this.form.setErrors({
