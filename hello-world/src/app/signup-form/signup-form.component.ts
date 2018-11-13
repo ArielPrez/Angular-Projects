@@ -12,21 +12,39 @@ export class SignupFormComponent {
   intervalId;
 
   form = new FormGroup({
-    username: new FormControl('',
-    {
-      validators: [Validators.required, 
-      UsernameValidators.cannotContainSpace,
-      UsernameValidators.minimCharacters],
-      asyncValidators: UsernameValidators.shouldBeUnique
-    }),
-    password: new FormControl('', Validators.required)
+    account: new FormGroup({
+      username: new FormControl('',
+      {
+        validators: [Validators.required, 
+        UsernameValidators.cannotContainSpace,
+        UsernameValidators.minimCharacters],
+        asyncValidators: UsernameValidators.shouldBeUnique
+      }),
+      password: new FormControl('', Validators.required)
+    })
+    
   });
 
+  login(){
+    this.form.setErrors({
+      invalidLogin: true
+    });
+  }
+  // LOGIN EXAMPLE WITH THE CALL TO THE SERVER
+  // login(){
+  //   let isValid = authService.login(this.form.value);
+  //   if(!isValid){
+  //     this.form.setErrors({
+  //       invalidLogin: true
+  //     })
+  //   }
+  // }
+
   get username(){
-    return this.form.get('username');
+    return this.form.get('account.username');
   }
   get password(){
-    return this.form.get('password');
+    return this.form.get('account.password');
   }
   intervalClockON(){
     this.clock = 1;

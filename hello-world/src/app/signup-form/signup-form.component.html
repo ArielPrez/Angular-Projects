@@ -1,50 +1,62 @@
-<form [formGroup]="form">
-    <div class="form-group">
-        <label for="username"> <span>Username </span>
-            <div class="icon" *ngIf="username.pending" ><i class="fas fa-user-clock"></i></div>
-            <div class="icon" *ngIf="username.valid" ><i class="fas fa-user-check"></i></div>
-            <div class="icon" *ngIf="username.touched && username.invalid" ><i class="fas fa-user-times"></i></div>
-        </label>
-        <input 
-            formControlName="username"
-            id="username" 
-            type="text" 
-            class="form-control"
-            (keyup)="intervalClockON()"
-            
-        >
-        <!-- (blur)="intervalClockOFF()" -->
-        <div *ngIf="username.pending"> 
-            <i> Checking for uniqueness... 
-                <i 
-                    class="fas fa-hourglass-start"
-                    [ngClass]="{
-                        'fa-hourglass-start': clock=='0',
-                        'fa-hourglass-half': clock=='1',
-                        'fa-hourglass-end': clock=='2'
-                    }"
-                ></i>
-            </i>
-        </div>
-
-        <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
-            <div *ngIf="username.errors.required"> <p>Username is required.</p> </div>
-            <div *ngIf="username.errors.cannotContainSpace"> <p>Username can not contain space.</p> </div>
-            <div *ngIf="username.errors.minimCharacters"> <p>Username should be minimum {{ username.errors.minlength.requiredLength }} characters.</p> </div>
-            <div *ngIf="username.errors.shouldBeUnique"> <p>Username is already taken.</p> </div>
-        </div>
+<form [formGroup]="form" (ngSubmit)="login()">
+    <div formGroupName="account">
+        <div class="form-group">
+                <label for="username"> 
+                    <span>Username </span>
+                    <div class="icon" *ngIf="username.pending" ><i class="fas fa-user-clock"></i></div>
+                    <div class="icon" *ngIf="username.valid" ><i class="fas fa-user-check"></i></div>
+                    <div class="icon" *ngIf="username.touched && username.invalid" ><i class="fas fa-user-times"></i></div>
+                </label>
+                <input 
+                    formControlName="username"
+                    id="username" 
+                    type="text" 
+                    class="form-control"
+                    (keyup)="intervalClockON()"
+                    
+                >
+                <!-- (blur)="intervalClockOFF()" -->
+                <div *ngIf="username.pending"> 
+                    <i> Checking for uniqueness... 
+                        <i 
+                            class="fas fa-hourglass-start"
+                            [ngClass]="{
+                                'fa-hourglass-start': clock=='0',
+                                'fa-hourglass-half': clock=='1',
+                                'fa-hourglass-end': clock=='2'
+                            }"
+                        ></i>
+                    </i>
+                </div>
         
+                <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+                    <div *ngIf="username.errors.required"> 
+                        <p>Username is required.</p> 
+                    </div>
+                    <div *ngIf="username.errors.cannotContainSpace"> <p>Username can not contain space.</p> </div>
+                    <div *ngIf="username.errors.minimCharacters"> <p>Username should be minimum {{ username.errors.minlength.requiredLength }} characters.</p> </div>
+                    <div *ngIf="username.errors.shouldBeUnique"> <p>Username is already taken.</p> </div>
+                </div>
+                
+        </div>
+        <div class="form-group">
+            <label for="password">
+                <span>Password </span>
+                <div class="icon" *ngIf="password.touched && password.invalid" ><i class="fas fa-exclamation-circle"></i></div>
+            </label>
+            <input 
+                formControlName="password"
+                id="password" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="password.touched && password.invalid" class="alert alert-danger"> <p>Password is required.</p> </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="password">Password
-            <div class="icon" *ngIf="password.touched && password.invalid" ><i class="fas fa-exclamation-circle"></i></div>
-        </label>
-        <input 
-            formControlName="password"
-            id="password" 
-            type="text" 
-            class="form-control">
-        <div *ngIf="password.touched && password.invalid" class="alert alert-danger"> <p>Password is required.</p> </div>
-    </div>
+    
     <button class="btn btn-primary" (click)="intervalClockOFF()" [disabled]="!form.valid" type="submit">Sign Up</button>
+    <div *ngIf="form.errors" class="alert alert-danger loginErr" >
+        <i class="fas fa-times-circle">  </i>
+        <span> The username or password is invalid</span>
+        <div></div>
+    </div>
 </form>

@@ -7,6 +7,12 @@
   padding-bottom: 1px;
   /* width: 80%; */
 }
+.loginErr{
+  margin-top: 15px;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+}
+
 label{
   width: 100%;
 }
