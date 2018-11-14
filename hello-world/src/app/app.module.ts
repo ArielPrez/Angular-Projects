@@ -17,6 +17,7 @@ import { AboutComponent } from './about/about.component';
 import { InputFormatDirective } from './directives/input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { TopicsFormComponent } from './topics-form/topics-form.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     InputFormatDirective,
     ContactFormComponent,
     SignupFormComponent,
+    TopicsFormComponent,
   ],
   imports: [
     BrowserModule,

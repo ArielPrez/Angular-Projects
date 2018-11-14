@@ -12,15 +12,16 @@ img{
   
 }
 
-.courses, .authors, .about, .signup-form{
+.courses, .authors, .about, .signup-form, .contact-form, .topic-form{
   display: inline-flex;
   margin: 0 3%;
   width: 35%;
+  border-bottom: 2px solid black;
 }
 .authors{
   width: 25%;
 }
-.signup-form{
+.signup-form, .about, .topic-form{
   background-color: #f2f2f2;
   width: 23%;
   margin-top: 2%;
