@@ -4,7 +4,13 @@
   text-align: center;
   /* border: 1px solid black; */
   width: 20%;
-  height: 100%;
+  height: 500px;
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(255, 225, 172));
+}
+.content{
+  position: relative;
+  float: left;
+  width: 80%;
 }
 img{
   width: 50%;
@@ -12,35 +18,36 @@ img{
   
 }
 
-.courses, .authors, .about, .signup-form, .contact-form, .topic-form{
+.courses, .authors, .about, .signup-form, .contact-form, .topic-form, .change-password, .user-content{
   display: inline-flex;
   margin: 0 3%;
-  width: 35%;
+  width: 50%;
   border-bottom: 2px solid black;
 }
 .authors{
-  width: 25%;
-}
-.signup-form, .about, .topic-form{
-  background-color: #f2f2f2;
   width: 23%;
+}
+.signup-form, .about, .contact-form, .topic-form, .change-password{
+  background-color: rgb(242, 242, 242);
+  width: 27%;
   margin-top: 2%;
-  margin-left: 23%;
+  margin-left: 2%;
   padding: 2%;
   border-radius: 1%;
 }
-
-.contact-form{
-  background-color: #f2f2f2;
-  width: 55%;
-  margin-top: 2%;
-  margin-left: 23%;
-  padding: 2%;
-  border-radius: 2%;
+.user-content{
+  /* display: inline; */
+  width: 60%;
 }
-
-/* .list{
-  /* display: grid; 
+.signup-form, .change-password{
   position: relative;
   float: left;
-} */
+  width: 100%;
+  padding: 4%;
+  border-bottom: 0px;
+}
+
+.contact-form{
+  width: 70%;
+  padding: 2%;
+}

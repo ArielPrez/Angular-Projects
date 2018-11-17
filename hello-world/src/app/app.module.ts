@@ -18,6 +18,7 @@ import { InputFormatDirective } from './directives/input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { TopicsFormComponent } from './topics-form/topics-form.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { TopicsFormComponent } from './topics-form/topics-form.component';
     ContactFormComponent,
     SignupFormComponent,
     TopicsFormComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
