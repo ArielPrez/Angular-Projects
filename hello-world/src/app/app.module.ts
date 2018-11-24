@@ -1,3 +1,4 @@
+import { HttpModule } from "@angular/http";
 import { AuthorsService } from './services/authors.service';
 import { CoursesService } from './services/courses.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,6 +20,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { TopicsFormComponent } from './topics-form/topics-form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { PostsComponent } from './posts/posts.component';
 
 
 @NgModule({
@@ -37,12 +39,14 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     SignupFormComponent,
     TopicsFormComponent,
     ChangePasswordComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [
     CoursesService,

@@ -18,7 +18,7 @@ img{
   
 }
 
-.courses, .authors, .about, .signup-form, .contact-form, .topic-form, .change-password, .user-content{
+.courses, .authors, .about, .signup-form, .contact-form, .topic-form, .change-password, .user-content, .posts{
   display: inline-flex;
   margin: 0 3%;
   width: 50%;
@@ -47,7 +47,7 @@ img{
   border-bottom: 0px;
 }
 
-.contact-form{
+.contact-form, .posts{
   width: 70%;
   padding: 2%;
 }
