@@ -153,8 +153,8 @@
       class="radio"
       *ngFor="let category of categoryMethod"
     >
-      <label for="radioLbl">
-        <input ngModel type="radio" name="radioLbl" id="radioLbl" [value]="category.id">
+      <label for="{{category.id}}">
+        <input ngModel type="radio" name="radioLbl"  [value]="category.id" id={{category.id}}>
         {{ category.name }}
       </label>
     </div>
