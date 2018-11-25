@@ -21,6 +21,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { TopicsFormComponent } from './topics-form/topics-form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostService } from "./services/post.service";
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { PostsComponent } from './posts/posts.component';
   ],
   providers: [
     CoursesService,
-    AuthorsService
+    AuthorsService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })
