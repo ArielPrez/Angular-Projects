@@ -10,7 +10,12 @@
   >
   <button 
     (click)="updatePost(post)"
-    class="btn btn-primary btn-sm">Update</button>
+    class="btn btn-primary btn-sm"
+  >Update</button>
   {{ post.title }}
+  <button 
+    class="btn btn-primary btn-sm"
+    (click)="deletePost(post)"
+  >Delete</button>
   </li>
 </ul>
