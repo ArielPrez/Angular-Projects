@@ -1,14 +1,11 @@
 import { BadInput } from './../common/bad-input';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { AppError } from '../common/app-error'; 
-import { Observable } from 'rxjs';
-import { NotFoundError } from '../common/not-found-error';
 import { throwError } from 'rxjs';
+import { NotFoundError } from '../common/not-found-error';
 
-// import 'rxjs/add/operator/catchError';
-// import 'rxjs/add/observable/throw';
 
 @Injectable({
   providedIn: 'root'
@@ -20,39 +17,50 @@ export class PostService {
   constructor(private http: Http) { }
 
   getPosts(){
-    return this.http.get(this.url);
+    return this.http.get(this.url)
+        .pipe(
+          map(res => {
+            return res;
+          }),
+          catchError((err: Response) => {
+            return throwError('error in source. Details: ' + err);
+          })
+        );
   }
   createPosts(text){
-    return this.http.post(this.url, JSON.stringify(text)).pipe(
-    catchError(response => {
-      const err = response.json();
-      return err.catch((error: Response) => {
-        if(error.status === 400){
-          // INCLUDE THE ERROR OBJECT THAT CAME FROM THE SERVER, 
-          // THAT ERROR OBJECT INCLUDE DATA ABOUT INVALID FIELD
-          return Observable.throw(new BadInput(error.json()));
-        }
-        return Observable.throw(new AppError(error.json()));
-      });
-    }));
+    return this.http.post(this.url, JSON.stringify(text))
+      .pipe(
+        catchError((err: Response) => {
+          if(err.status === 400){
+            return throwError(new BadInput(err.json()));
+          }
+          return throwError(new AppError(err.json()));
+        })
+      );
   }
   updatePosts(post){
-    return this.http.patch(this.url + '/' + post.id, JSON.stringify({isRead: true}));
-  }
-  deletePosts(id){
-    return this.http.delete(this.url + '/' + id).pipe(
-      catchError(response => {
-        const err = response.json();
-        return err.catch((error: Response) => {
-          if(error.status === 404)
-            return Observable.throw(new NotFoundError());
-          return Observable.throw(new AppError(error));
-        });
+    return this.http.patch(this.url + '/' + post.id, JSON.stringify({isRead: true}))
+    .pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((err: Response) => {
+        return throwError('error in source. Details: ' + err);
       })
-    )
-    // .delete(this.url + '/' + id)
-    //   .catchError((error: Response) => {
-    //     return Observable.throw(new AppError(error));
-    //   });
-  }
+    );
+  }  
+  deletePost(id) {
+    return this.http.delete(this.url + '/' + id.id)
+      .pipe(
+        map(res => {
+          return res;
+        }),
+        catchError((error: Response) => {
+          if (error.status === 404)
+            return throwError(new NotFoundError()); 
+          else
+            return throwError(new AppError(error));
+        })
+      )
+    }
 }

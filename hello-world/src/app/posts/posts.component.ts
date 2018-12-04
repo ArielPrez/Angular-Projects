@@ -24,7 +24,8 @@ export class PostsComponent implements OnInit {
       .subscribe( 
         response => {
           this.posts = response.json();
-        });
+        }
+      );
   }
   // CREATE
   createPost(input: HTMLInputElement){
@@ -58,23 +59,43 @@ export class PostsComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response.json());
-        });
-  }
-  // DELETE
-  deletePost(post){
-    //BY CONVENTION THE HTTP.DELETE REQUEST DON'T HAVE A BODY
-    this.service.deletePosts(999)
-      .subscribe(
-        response => {
-          let index = this.posts.indexOf(post);
-          // let index = response.json().id;
-          this.posts.splice(index, 1);
-        },
+        }
+        ,
         (error: AppError) => {
           if(error instanceof NotFoundError)
             alert('This post has already been deleted.')
           else throw error;
             //GLOBAL ERROR HANDLER
-        });
+        }
+      );
   }
+  // DELETE
+  deletePost(post){
+    //BY CONVENTION THE HTTP.DELETE REQUEST DON'T HAVE A BODY
+    let index = this.posts.indexOf(post);
+    // let index = response.json().id;
+    post = this.posts.splice(index, 1);
+    this.service.deletePost(post)
+      .subscribe(
+        response => {
+          console.log('This is a testing =====> ' + response.json());
+        }
+        ,
+        (error: AppError) => {
+          if(error instanceof NotFoundError)
+            alert('This post has already been deleted.')
+          else throw error;
+            //GLOBAL ERROR HANDLER
+        }
+      );
+  }
+  // deletePost(id) {
+  //   return this.http.delete(this.url + '/' + id).pipe (
+  //   catchError((error: Response) => {
+  //   if (error.status === 404) {
+  //   return throwError(new NotFoundError());
+  //   } else {
+  //   return throwError(new AppError(error));
+  //   }
+  //   }))}
 }
