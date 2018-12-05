@@ -8,7 +8,7 @@ import { DataService } from './data.service';
 })
 export class PostService extends DataService {
 
-  private url = 'https://jsonplaceholder.typicode.com/posts';
+  // private url = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(http: Http) { 
     super('https://jsonplaceholder.typicode.com/posts',http);
