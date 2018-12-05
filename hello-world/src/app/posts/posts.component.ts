@@ -20,7 +20,7 @@ export class PostsComponent implements OnInit {
   // READ
   ngOnInit() {
     // DON'T CALL HTTP SERVICES ON THE CONSTRUCTOR OF THE COMPONENT FOR INITIALIZATION
-    this.service.getPosts()
+    this.service.getAll()
       .subscribe( 
         response => {
           this.posts = response.json();
@@ -32,7 +32,7 @@ export class PostsComponent implements OnInit {
     let text = {title: input.value};
     input.value = '';
     // THE METHODS OF HTTP CLASS RETURN AN OBSERVABLE, WHICH MEANS IT NEED A SUBSCRIBE METHOD
-    this.service.createPosts(text)
+    this.service.create(text)
       .subscribe(
         response => {
           // text['id'] = response.json().id;
@@ -55,7 +55,7 @@ export class PostsComponent implements OnInit {
     //USING THE PATCH METHOD TO UPDATE ONLY A FEW PROPERTIES IN AN OBJECT 
     //INSTEAD OF SENDING THE COMPLETE OBJECT TO THE SERVER WITH PUT
     // this.http.put(this.url, JSON.stringify(post))
-    this.service.updatePosts(post)
+    this.service.update(post)
       .subscribe(
         response => {
           console.log(response.json());
@@ -72,12 +72,13 @@ export class PostsComponent implements OnInit {
   // DELETE
   deletePost(post){
     //BY CONVENTION THE HTTP.DELETE REQUEST DON'T HAVE A BODY
-    let index = this.posts.indexOf(post);
-    // let index = response.json().id;
-    post = this.posts.splice(index, 1);
-    this.service.deletePost(post)
+    
+    this.service.delete(post)
       .subscribe(
         response => {
+          let index = this.posts.indexOf(post);
+    // let index = response.json().id;
+    post = this.posts.splice(index, 1);
           console.log('This is a testing =====> ' + response.json());
         }
         ,
