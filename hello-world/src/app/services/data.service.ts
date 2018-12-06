@@ -7,9 +7,7 @@ import { throwError } from 'rxjs';
 import { NotFoundError } from '../common/not-found-error';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DataService {
 
   constructor(private url: string, private http: Http) { }
@@ -18,7 +16,7 @@ export class DataService {
     return this.http.get(this.url)
         .pipe(
           map(res => {
-            return res;
+            return res.json();
           }),
           catchError((error: Response) => {
             return this.handleError(error);
@@ -28,6 +26,9 @@ export class DataService {
   create(resource){
     return this.http.post(this.url, JSON.stringify(resource))
       .pipe(
+        map(res => {
+          return res.json();
+        }),
         catchError((error: Response) => {
           return this.handleError(error);
         })
@@ -37,7 +38,7 @@ export class DataService {
     return this.http.patch(this.url +  resource.id, JSON.stringify({isRead: true}))
     .pipe(
       map(res => {
-        return res;
+        return res.json();
       }),
       catchError((error: Response) => {
         return this.handleError(error);
@@ -45,10 +46,10 @@ export class DataService {
     );
   }  
   delete(id) {
-    return this.http.delete(this.url + '/' + id.id)
+    return this.http.delete(this.url + '/' + id)
       .pipe(
         map(res => {
-          return res;
+          return res.json();
         }),
         catchError((error: Response) => {
           return this.handleError(error);

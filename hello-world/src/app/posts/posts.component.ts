@@ -23,7 +23,7 @@ export class PostsComponent implements OnInit {
     this.service.getAll()
       .subscribe( 
         response => {
-          this.posts = response.json();
+          this.posts = response;
         }
       );
   }
@@ -35,7 +35,7 @@ export class PostsComponent implements OnInit {
     this.service.create(text)
       .subscribe(
         response => {
-          // text['id'] = response.json().id;
+          text['id'] = response.id;
           // SPLICE - TO ADD IT AT THE BEGINNING OF THE LIST, INSTEAD USING THE PUSH TO ADD IT TO THE END
           this.posts.splice(0, 0, text);
         }, 
@@ -57,8 +57,8 @@ export class PostsComponent implements OnInit {
     // this.http.put(this.url, JSON.stringify(post))
     this.service.update(post)
       .subscribe(
-        response => {
-          console.log(response.json());
+        updatedPost => {
+          console.log(updatedPost);
         }
         ,
         (error: AppError) => {
@@ -73,12 +73,12 @@ export class PostsComponent implements OnInit {
   deletePost(post){
     //BY CONVENTION THE HTTP.DELETE REQUEST DON'T HAVE A BODY
     
-    this.service.delete(post)
+    this.service.delete(post.id)
       .subscribe(
         response => {
           let index = this.posts.indexOf(post);
-    // let index = response.json().id;
-    post = this.posts.splice(index, 1);
+          // let index = response.json().id;
+          post = this.posts.splice(index, 1);
           console.log('This is a testing =====> ' + response.json());
         }
         ,
