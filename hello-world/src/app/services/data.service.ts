@@ -35,7 +35,7 @@ export class DataService {
       );
   }
   update(resource){
-    return this.http.patch(this.url +  resource.id, JSON.stringify({isRead: true}))
+    return this.http.patch(this.url+resource.id, JSON.stringify({isRead: true}))
     .pipe(
       map(res => {
         return res.json();
@@ -58,7 +58,7 @@ export class DataService {
     }
     private handleError(error: Response){
       if(error.status === 400)
-        return throwError(new BadInput(error.json()));
+        return throwError(new BadInput(error));
       if(error.status === 404)
         return throwError(new NotFoundError());
       return throwError(new AppError(error));

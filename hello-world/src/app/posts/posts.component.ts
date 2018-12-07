@@ -60,29 +60,23 @@ export class PostsComponent implements OnInit {
         updatedPost => {
           console.log(updatedPost);
         }
-        ,
-        (error: AppError) => {
-          if(error instanceof NotFoundError)
-            alert('This post has already been deleted.')
-          else throw error;
-            //GLOBAL ERROR HANDLER
-        }
       );
   }
   // DELETE
   deletePost(post){
     //BY CONVENTION THE HTTP.DELETE REQUEST DON'T HAVE A BODY
-    
+    let index = this.posts.indexOf(post);
+    // let index = response.json().id;
+    this.posts.splice(index, 1);
+
     this.service.delete(post.id)
       .subscribe(
         response => {
-          let index = this.posts.indexOf(post);
-          // let index = response.json().id;
-          post = this.posts.splice(index, 1);
-          console.log('This is a testing =====> ' + response.json());
+          console.log('This is a testing =====> ' + post);
         }
         ,
         (error: AppError) => {
+          this.posts.splice(index, 0, post);
           if(error instanceof NotFoundError)
             alert('This post has already been deleted.')
           else throw error;
