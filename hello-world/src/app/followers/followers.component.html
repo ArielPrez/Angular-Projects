@@ -1,0 +1,22 @@
+<div 
+  class="media"
+  *ngFor="let follower of followers"
+>
+  <img class="mr-3 avatar" src="{{ follower.avatars[1].url }}" alt="Generic placeholder image">
+  <!-- <span class="name">{{ follower.avatars_origin.name }}</span> -->
+  <!-- <span class="fb_url"></span> -->
+  <div class="media-body name">
+    <h5 class="mt-0">{{ follower.avatars_origin.name }}</h5>
+    <a href="{{ follower.avatars_origin.facebook_profile_link }}">{{ follower.avatars_origin.facebook_profile_link }}</a>
+    
+  </div>
+</div>
+<!-- <script>
+$.ajax({
+  url: 'https://tinyfac.es/api/users',
+  dataType: 'json',
+  success: function(data) {
+      console.log(data);
+  }
+});
+</script> -->
