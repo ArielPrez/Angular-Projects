@@ -2,7 +2,9 @@
   class="media"
   *ngFor="let follower of followers"
 >
-  <img class="mr-3 avatar" src="{{ follower.avatars[1].url }}" alt="Generic placeholder image">
+  <div class="image">
+    <img class="mr-3 avatar" src="{{ follower.avatars[1].url }}" alt="Generic placeholder image">
+  </div>
   <!-- <span class="name">{{ follower.avatars_origin.name }}</span> -->
   <!-- <span class="fb_url"></span> -->
   <div class="media-body name">

@@ -1,13 +1,30 @@
-
-.avatar, .name { 
-  width: 100px;
-  height: 100px;
+.image{
+  width: 80px;
+  height: 80px;
+  position:relative;
+  overflow:hidden;
+  /* padding-bottom:100%; */
   border-radius: 100%;
   border: 2px solid black;
+  background-color: black;
   margin: 15px;
-  padding: 2px;
-  text-align: center;
-  /* text-align: end; */
+}
+.image avatar{
+  position:absolute;
+}
+.avatar, .name { 
+  width: 80px;
+  height: auto;
+  /* height: auto; */
+  /* border-radius: 100%;  */
+  border: 2px solid black; 
+  margin: 15px;
+  padding: 2px, 2px, 100%, 2px;
+  /* text-align: center; */
+}
+.avatar{
+  margin: -2px 0 0 -10px;
+  width: 100px;
 }
 .name{
   border: 0px;
